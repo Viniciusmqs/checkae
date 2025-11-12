@@ -1,0 +1,10 @@
+{
+  "ABC1D23": {
+    "dadosCadastrais": { "chassi": "9BWZZZ377VT004251", "renavam": "12345678901", "uf": "DF" },
+    "valorFipe": { "referencia": "2025-11", "valor": 45790 }
+  },
+  "JKL9M87": {
+    "dadosCadastrais": { "chassi": "93HBR1D0XAB123456", "renavam": "00677889911", "uf": "SP" },
+    "valorFipe": { "referencia": "2025-10", "valor": 61230 }
+  }
+}

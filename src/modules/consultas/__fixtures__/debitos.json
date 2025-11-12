@@ -1,0 +1,13 @@
+{
+  "ABC1D23": {
+    "itens": [],
+    "total": 0
+  },
+  "JKL9M87": {
+    "itens": [
+      { "tipo": "IPVA", "anoExercicio": 2024, "descricao": "IPVA 2024", "valorPrincipal": 1280.45, "jurosMulta": 128.04, "valorTotal": 1408.49, "orgao": "SEFAZ-SP", "situacao": "EM_ABERTO" },
+      { "tipo": "MULTA", "anoExercicio": 2025, "descricao": "Excesso de velocidade", "valorPrincipal": 293.47, "jurosMulta": 0, "valorTotal": 293.47, "orgao": "DER-SP", "situacao": "EM_ABERTO" }
+    ],
+    "total": 1701.96
+  }
+}
