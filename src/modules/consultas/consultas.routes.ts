@@ -1,17 +1,39 @@
-import { Router } from "express";
+import { Router } from 'express';
+import { prisma } from '../../config/prisma';
 
 export const consultasRouter = Router();
 
-consultasRouter.post("/", (req, res) => {
-  // placeholder por enquanto
-  // aqui depois vamos chamar APIs externas e montar a consulta Checkaê
-  res.status(202).json({
-    message: "Consulta Checkaê criada. Implementação virá depois."
-  });
+consultasRouter.post('/', async (req, res, next) => {
+  try {
+    const { placa, cpfCnpj } = req.body ?? {};
+    if (!placa || !cpfCnpj) {
+      return res.status(400).json({ message: 'placa e cpfCnpj são obrigatórios' });
+    }
+
+    const consulta = await prisma.consulta.create({
+      data: {
+        placa: String(placa).toUpperCase(),
+        cpfCnpj: String(cpfCnpj),
+        status: 'PROCESSANDO',
+      },
+    });
+
+    // TODO: enfileirar chamadas (APIBrasil/Celcoin) e atualizar a consulta depois
+    return res.status(202).json({ consultaId: consulta.id, status: consulta.status });
+  } catch (err) {
+    next(err);
+  }
 });
 
-consultasRouter.get("/:id", (req, res) => {
-  res.status(200).json({
-    message: "Detalhes da consulta Checkaê. Implementação virá depois."
-  });
+consultasRouter.get('/:id', async (req, res, next) => {
+  try {
+    const consulta = await prisma.consulta.findUnique({
+      where: { id: req.params.id },
+      include: { debitos: true, eventos: true },
+    });
+    if (!consulta) return res.status(404).json({ message: 'consulta não encontrada' });
+    return res.json(consulta);
+  } catch (err) {
+    next(err);
+  }
 });

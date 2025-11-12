@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+}
+
+enum ConsultaStatus {
+  PROCESSANDO
+  CONCLUIDA
+  ERRO
+}
+
+model Consulta {
+  id             String         @id @default(uuid())
+  placa          String
+  cpfCnpj        String
+  status         ConsultaStatus @default(PROCESSANDO)
+  dadosCadastrais Json?
+  valorFipe       Json?
+  resumoDebitos   Json?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  debitos Debito[]
+  eventos ProviderEvento[]
+}
+
+model Debito {
+  id            String   @id @default(uuid())
+  consultaId    String
+  tipo          String
+  anoExercicio  Int?
+  descricao     String?
+  valorPrincipal Decimal? @db.Decimal(12, 2)
+  jurosMulta     Decimal? @db.Decimal(12, 2)
+  valorTotal     Decimal? @db.Decimal(12, 2)
+  orgao          String?
+  situacao       String?
+
+  consulta Consulta @relation(fields: [consultaId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model ProviderEvento {
+  id            String   @id @default(uuid())
+  consultaId    String
+  provider      String
+  tipo          String
+  correlationId String?
+  payload       Json?
+  createdAt     DateTime @default(now())
+
+  consulta Consulta @relation(fields: [consultaId], references: [id])
+}

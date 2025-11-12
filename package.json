@@ -9,12 +9,15 @@
   "start": "node dist/index.js",
   "lint": "eslint --ext .ts src",
   "lint:fix": "eslint --ext .ts src --fix",
-  "format": "prettier --write \"src/**/*.ts\""
- },
+  "format": "prettier --write \"src/**/*.ts\"",
+  "prisma:studio": "prisma studio",
+  "prisma:migrate": "prisma migrate dev"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^6.19.0",
     "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -30,10 +33,11 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "prettier": "^3.6.2",
+    "prisma": "^6.19.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
   },
   "engines": {
-  "node": ">=18.0.0"
+    "node": ">=18.0.0"
   }
 }
