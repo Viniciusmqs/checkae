@@ -1,10 +1,62 @@
 {
   "ABC1D23": {
-    "dadosCadastrais": { "chassi": "9BWZZZ377VT004251", "renavam": "12345678901", "uf": "DF" },
-    "valorFipe": { "referencia": "2025-11", "valor": 45790 }
+    "dadosCadastrais": {
+      "placa": "ABC1D23",
+      "ufPlaca": "MG",
+      "municipio": "DIVINOPOLIS",
+      "marca": "FORD",
+      "modelo": "FORD/FIESTA FLEX",
+      "versao": "FLEX",
+      "anoFabricacao": 2013,
+      "anoModelo": 2014,
+      "cor": "Preta",
+      "chassi": "9BFZF520232ABC2023",
+      "tipoVeiculo": "Automovel",
+      "combustivel": "Alcool / Gasolina",
+      "quantidadePassageiros": 5,
+      "situacaoVeiculo": "Sem restrição",
+      "origem": "NACIONAL",
+      "logoUrl": "http://apiveiculos.com.br/logo/ford.png"
+    },
+    "valorFipe": {
+      "codigoFipe": "003380-4",
+      "modelo": "FORD/FIESTA FLEX",
+      "marca": "Ford",
+      "anoModelo": "2013/2014",
+      "combustivel": "Gasolina",
+      "valor": 28972.0,
+      "mesReferencia": "janeiro de 2024",
+      "ipva": 1158.88
+    }
   },
   "JKL9M87": {
-    "dadosCadastrais": { "chassi": "93HBR1D0XAB123456", "renavam": "00677889911", "uf": "SP" },
-    "valorFipe": { "referencia": "2025-10", "valor": 61230 }
+    "dadosCadastrais": {
+      "placa": "JKL9M87",
+      "ufPlaca": "SP",
+      "municipio": "SAO PAULO",
+      "marca": "CHEVROLET",
+      "modelo": "ONIX LT 1.0",
+      "versao": "LT",
+      "anoFabricacao": 2020,
+      "anoModelo": 2021,
+      "cor": "Branca",
+      "chassi": "9BGKS48U0MG123456",
+      "tipoVeiculo": "Automovel",
+      "combustivel": "Gasolina",
+      "quantidadePassageiros": 5,
+      "situacaoVeiculo": "Sem restrição",
+      "origem": "NACIONAL",
+      "logoUrl": "https://apiveiculos.com.br/static/logos/chevrolet.png"
+    },
+    "valorFipe": {
+      "codigoFipe": "004567-8",
+      "modelo": "ONIX LT 1.0",
+      "marca": "Chevrolet",
+      "anoModelo": "2020/2021",
+      "combustivel": "Gasolina",
+      "valor": 78500.0,
+      "mesReferencia": "setembro de 2025",
+      "ipva": 3140.0
+    }
   }
 }

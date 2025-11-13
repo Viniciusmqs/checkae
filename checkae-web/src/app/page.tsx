@@ -1,54 +1,49 @@
-"use client";
+// src/app/page.tsx
 
-import { useEffect, useState } from "react";
-import { getConsultas } from "@/lib/api";
-import { Card, CardContent } from "@/app/components/ui/card";
-import { Badge } from "@/app/components/ui/badge";
-
-type Consulta = {
-  id: string;
-  placa: string;
-  cpfCnpj: string;
-  status: string;
-  createdAt: string;
-};
+import Link from "next/link";
 
 export default function HomePage() {
-  const [consultas, setConsultas] = useState<Consulta[]>([]);
-
-  useEffect(() => {
-    getConsultas().then(setConsultas);
-  }, []);
-
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
-      <h1 className="text-2xl font-semibold mb-6">Consultas Realizadas</h1>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {consultas.map((c) => (
-          <Card key={c.id} className="hover:shadow-lg transition">
-            <CardContent className="p-4 space-y-2">
-              <div className="flex justify-between items-center">
-                <h2 className="font-medium text-gray-800">{c.placa}</h2>
-                <Badge
-                  variant={
-                    c.status === "CONCLUIDA"
-                      ? "success"
-                      : c.status === "PROCESSANDO"
-                      ? "secondary"
-                      : "destructive"
-                  }
-                >
-                  {c.status}
-                </Badge>
-              </div>
-              <p className="text-sm text-gray-500">{c.cpfCnpj}</p>
-              <p className="text-xs text-gray-400">
-                {new Date(c.createdAt).toLocaleString("pt-BR")}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+    <main className="min-h-screen bg-gray-50 flex flex-col">
+      <section className="flex-1 px-6 py-12 md:px-16 lg:px-32 flex flex-col justify-center gap-8">
+        <div className="max-w-2xl space-y-4">
+          <span className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium text-gray-600 bg-white">
+            Plataforma de consulta veicular
+          </span>
+
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900">
+            Consultas veiculares rápidas, confiáveis e fáceis de entender.
+          </h1>
+
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            O Checkae conecta diferentes provedores para montar um dossiê
+            completo do veículo, com dados cadastrais, débitos, histórico
+            básico e valor de referência em uma interface simples e objetiva.
+          </p>
+
+          <div className="flex flex-wrap gap-3 mt-4">
+            <Link
+              href="/consultas"
+              className="rounded-full bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-900 transition"
+            >
+              Ver consultas realizadas
+            </Link>
+
+            <Link
+              href="/consultas"
+              className="rounded-full border border-gray-300 px-6 py-2 text-sm font-medium text-gray-800 bg-white hover:bg-gray-100 transition"
+            >
+              Iniciar nova consulta
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-10 text-xs text-gray-400">
+          Depois refinamos aqui com cards de benefícios, destaque de promoção,
+          menu superior e botão flutuante, alinhando com o fluxo ideal que você
+          descreveu.
+        </div>
+      </section>
     </main>
   );
 }
